@@ -6,19 +6,15 @@ namespace HashTable
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hash Table Program Started");
-            MyMapNode<string, string> hash = new MyMapNode<string, string>(5);
-            hash.Add("0", "To");
-            hash.Add("1", "be");
-            hash.Add("2", "or");
-            hash.Add("3", "not");
-            hash.Add("4", "to");
-            hash.Add("5", "be");
-            string hash5 = hash.Get("5");
-            Console.WriteLine("5th index value: " + hash5);
-            hash.Remove("2");
-            string hash2 = hash.Get("2");
-            Console.WriteLine("2nd index value: " + hash2);
-        }
+            Console.WriteLine("Getting Frequency using Hash Table");
+            HashTable.MyMapNode<int, string> table = new HashTable.MyMapNode<int, string>();
+            table.add(0, "to");
+            table.add(1, "be");
+            table.add(2, "or");
+            table.add(3, "not");
+            table.add(4, "to");
+            table.add(5, "be");
+            table.GetFreq("to");                       
+        }        
     }
 }
