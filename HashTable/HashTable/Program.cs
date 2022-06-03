@@ -17,6 +17,7 @@ namespace HashTable
             table.add(5, "be");
             table.GetFreq("to");*/
             //-------UC2 Freq of Sentence--------
+            
             string phrase = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
             string[] words = phrase.ToLower().Split(" ");
             var dist = words.Distinct();
@@ -27,7 +28,11 @@ namespace HashTable
             int count = 1;
             foreach (string word in words)
             {
-                if (map.ContainsKey(word))
+                if (word == "avoidable")//To Remove 'avoidable' word... added if...else.
+                {
+                    continue;
+                }
+                else if (map.ContainsKey(word))
                 {
                     count = map.GetValue(word) + 1;
                     map.Remove(word);
@@ -38,10 +43,10 @@ namespace HashTable
                     map.add(word, 1);
                 }
             }
-            Console.WriteLine("Frequency ---> Count\n");
+            Console.WriteLine("Frequency ---> Count");
             foreach (string key in dist)
             {
-                Console.WriteLine($"{key} ---> {map.GetValue(key)}");
+                Console.WriteLine(key + " ---> " + map.GetValue(key));
             }
         }        
     }
